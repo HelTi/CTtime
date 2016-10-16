@@ -26,17 +26,17 @@
 <body>
 <h3>倒计时效果</h3>
 <div class="warp">
-    <strong class="h"></strong>分<strong class="a"></strong>秒 <strong class="b"></strong>毫秒
+    <strong class="m"></strong>分<strong class="s"></strong>秒 <strong class="ms"></strong>毫秒
 </div>
-<button id="btn">stop</button>
+<button id="stop">stop</button>
 <button id="run">run</button>
 <script>
 var opt={
     times:3*60*100,
-    elh:'.h',
-    elms:'.a',
-    elhm:'.b',
-    elstop:'#btn',
+    elh:'.m',
+    elms:'.s',
+    elhm:'.ms',
+    elstop:'#stop',
     elrun:'#run'
 }
 $("body").ctime(opt);

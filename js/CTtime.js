@@ -4,6 +4,7 @@
 
 ;(function($){
     var timecount=function(ele, opt){
+        //默认的配置参数
         this.defaults={
             times:2*60*100,
             elh:'',
@@ -12,10 +13,13 @@
             elrun:'',
             elstop:''
         };
+        //初始化计时器
         this.interval=null;
+        //配置参数
         this.options= $.extend({},this.defaults,opt);
     }
     timecount.prototype={
+        //主函数
         counttime:function(){
             this.defaults.times=--this.defaults.times<0?0:this.defaults.times;
             var innert=this.defaults.times;
@@ -32,9 +36,6 @@
             if (innert==0){
                 clearInterval(this.interval);
             }
-            /*            $(".a").html(ms);
-             $('.b').html(hm);
-             $(".h").html(h);*/
             $(this.options.elh).html(h);
             $(this.options.elms).html(ms);
             $(this.options.elhm).html(hm);
@@ -46,8 +47,9 @@
                 _this.counttime();
             },10);
             return this.interval;
-            /*  setInterval('run',10);*/
+            
         },
+        //停止接口
         stop:function(){
             var that=this;
             clearInterval(that.interval);
@@ -55,6 +57,7 @@
              clearInterval(that.interval);
              })*/
         },
+      //初始化函数
         init:function(){
             var _that=this;
             $(_that.options.elstop).click(function(){
@@ -67,7 +70,7 @@
                 }
                 _that.interval=_that.run();
             });
-            /*return _this.init();*/
+    
         }
     }
    /*jquery插件*/
@@ -75,6 +78,6 @@
         var nctime=new timecount(this,opt);
         nctime.init();
         console.log(this);
-        return this;
+        return this;//使此接口可以链式调用
     }
 })(jQuery);
